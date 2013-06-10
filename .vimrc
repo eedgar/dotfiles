@@ -1,13 +1,26 @@
+set t_Co=256
+set background=dark
+colorscheme solarized
+syntax on
+
+execute pathogen#infect()
+filetype plugin indent on
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
 set wildmenu
+set wildmode=list:longest
+set visualbell
+set matchpairs=(:),[:],{:},<:>
+set viminfo='1000,f1,<500,:500,/500
 " Allow cursor keys in insert mode
 set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
+set whichwrap=h,l,[,],~
 " Optimize for fast terminal connections
 set ttyfast
 " Add the g flag to search/replace by default
@@ -30,23 +43,29 @@ endif
 set modeline
 set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
+set hidden
 set exrc
 set secure
 " Enable line numbers
 set number
-" Enable syntax highlighting
-syntax on
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
 " Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set listchars=tab:▸\
 set list
 " Highlight searches
 set hlsearch
 " Ignore case of searches
 set ignorecase
+set smartcase
+set showmatch
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=79
 " Highlight dynamically as pattern is typed
 set incsearch
 " Always show status line
@@ -61,19 +80,31 @@ set nostartofline
 set ruler
 " Don’t show the intro message when starting Vim
 set shortmess=atI
+" Allow vim to edit crontab
+set backupskip=/tmp/*,/private/tmp/*
 " Show the current mode
 set showmode
 " Show the filename in the window titlebar
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" undofile
+set shell=/usr/local/bin/bash
+set lazyredraw
+set matchtime=3
 " Use relative line numbers
 if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
+	set norelativenumber
+	au BufReadPost * set norelativenumber
 endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
+
+" Moving between windows
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -94,3 +125,70 @@ if has("autocmd")
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 endif
+
+" Make Sure that Vim returns to the same line when we reopen a file"
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Working with split screen nicely
+" Resize Split When the window is resized"
+au VimResized * :wincmd =
+
+set wildignore+=.hg,.git,.svn " Version Controls"
+set wildignore+=*.aux,*.out,*.toc "Latex Indermediate files"
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg "Binary Imgs"
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest "Compiled Object files"
+set wildignore+=*.spl "Compiled speolling world list"
+set wildignore+=*.sw? "Vim swap files"
+set wildignore+=*.DS_Store "OSX SHIT"
+set wildignore+=*.luac "Lua byte code"
+set wildignore+=migrations "Django migrations"
+set wildignore+=*.pyc "Python Object codes"
+set wildignore+=*.orig "Merge resolution files"
+
+
+" Removing scrollbars
+if has("gui_running")
+    set gfn=Letter\ Gothic\ Std\ Bold:h14
+    set tabpagemax=1
+    set transp=5
+    set sessionoptions+=resize,winpos
+    set guitablabel=%-0.12t%M
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
+    set guioptions+=a
+    set guioptions+=m
+    set listchars=tab:▸\
+    autocmd VimEnter * wincmd p
+    autocmd VimEnter * NERDTreeFind
+    autocmd VimEnter * wincmd p
+    autocmd VimEnter * vsplit
+endif
+
+autocmd bufwritepost .vimrc source ~/.vimrc
+
+" Change directory to current
+function! CHANGE_CURR_DIR()
+    let _dir = expand("%:p:h")
+    exec "cd " . _dir
+    unlet _dir
+endfunction
+autocmd BufEnter * call CHANGE_CURR_DIR()
+
+if &term == "xterm-color"
+	set t_kb=
+	fixdel
+endif
+
+"nnoremap <silent> Q :Ex<CR>
+noremap Y y$
+nmap <Tab> >>
+nmap <S-Tab> <<
+vmap <Tab> >gv
+vmap <S-Tab> <gv
