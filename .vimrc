@@ -199,3 +199,5 @@ nmap <Tab> >>
 nmap <S-Tab> <<
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+map <C-n> :NERDTreeToggle<CR>
