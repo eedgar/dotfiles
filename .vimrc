@@ -1,6 +1,29 @@
+set nocompatible
+filetype off
 
-execute pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'scrooloose/nerdtree'
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeIgnore=['\.pyc$', '\.swp$']
+
+autocmd vimenter * if !argc() | NERDTree | endif
+map <leader>nt :NERDTreeToggle<cr>
+
+Bundle 'benmills/vimux'
+
+Bundle 'scrooloose/syntastic'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-surround'
+
+set rtp+=~/.powerline/powerline/bindings/vim
+
 filetype plugin indent on
+
 
 set t_Co=256
 set background=dark
@@ -203,3 +226,8 @@ vmap <S-Tab> <gv
 map <C-n> :NERDTreeToggle<CR>
 
 set expandtab
+
+let g:Powerline_theme='short'
+let g:Powerline_colorscheme='solarized256_dark'
+
+set rtp+=~/.powerline/powerline/bindings/vim

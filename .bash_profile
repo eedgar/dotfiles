@@ -43,3 +43,4 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 
 # Virtualenvwrapper
 source $(which virtualenvwrapper.sh)
+. ~/.powerline/powerline/bindings/bash/powerline.sh
