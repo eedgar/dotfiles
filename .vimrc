@@ -201,3 +201,5 @@ vmap <Tab> >gv
 vmap <S-Tab> <gv
 
 map <C-n> :NERDTreeToggle<CR>
+
+set expandtab
