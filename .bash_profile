@@ -44,3 +44,10 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 # Virtualenvwrapper
 source $(which virtualenvwrapper.sh)
 . ~/.powerline/powerline/bindings/bash/powerline.sh
+
+# Add Homebrew to PATH
+export PATH="/usr/local/bin:$PATH"
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
