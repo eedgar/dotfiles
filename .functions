@@ -251,3 +251,20 @@ function gi() {
 	local IFS=,
 	eval npm install --save-dev grunt-{"$*"}
 }
+
+# Push SSH public key to a remote box for key access
+# usage: setupssh $USER@mybox
+setupssh () {
+    USER=${1%@*}
+    BOX=${1#*@}
+    if [ "$USER" = "$1" ]; then
+        USER=`whoami`
+    else
+        # Set up user
+        echo "
+Host $BOX
+   User $USER" >> $HOME/.ssh/config
+    fi
+    # Install the key
+    cat ~/.ssh/id_dsa.pub | ssh $USER@$BOX "mkdir -p ~/.ssh && cat - >> ~/.ssh/authorized_keys"
+}

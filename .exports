@@ -23,3 +23,9 @@ export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+export LESS='-R'
+export PYTHONSTARTUP="/Users/$USER/.pythonrc"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export M2_HOME=/usr/share/maven
