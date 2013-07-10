@@ -19,6 +19,7 @@ Bundle 'benmills/vimux'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
 
 set rtp+=~/.powerline/powerline/bindings/vim
 
