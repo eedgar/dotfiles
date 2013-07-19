@@ -120,7 +120,7 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " undofile
-set shell=/usr/local/bin/bash
+set shell=/bin/bash
 set lazyredraw
 set matchtime=3
 " Use relative line numbers
