@@ -231,3 +231,4 @@ let g:Powerline_theme='short'
 let g:Powerline_colorscheme='solarized256_dark'
 
 set rtp+=~/.powerline/powerline/bindings/vim
+let NERDTreeShowHidden=1
