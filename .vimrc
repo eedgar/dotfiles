@@ -19,6 +19,7 @@ Bundle 'benmills/vimux'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
 
 set rtp+=~/.powerline/powerline/bindings/vim
 
@@ -63,7 +64,7 @@ let mapleader=","
 set binary
 set noeol
 " Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
+"set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
 	set undodir=~/.vim/undo
@@ -119,7 +120,7 @@ set title
 " Show the (partial) command as it’s being typed
 set showcmd
 " undofile
-set shell=/usr/local/bin/bash
+set shell=/bin/bash
 set lazyredraw
 set matchtime=3
 " Use relative line numbers

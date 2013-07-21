@@ -48,6 +48,8 @@ source $(which virtualenvwrapper.sh)
 # Add Homebrew to PATH
 export PATH="/usr/local/bin:$PATH"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
+if [ -n "$(which brew 2>/dev/null)" ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+    fi
 fi
