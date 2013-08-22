@@ -20,6 +20,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
+Bundle 'christoomey/vim-tmux-navigator'
 
 set rtp+=~/.powerline/powerline/bindings/vim
 
@@ -227,6 +228,8 @@ vmap <S-Tab> <gv
 map <C-n> :NERDTreeToggle<CR>
 
 set expandtab
+set splitbelow
+set splitright
 
 let g:Powerline_theme='short'
 let g:Powerline_colorscheme='solarized256_dark'
