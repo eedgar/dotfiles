@@ -21,6 +21,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'kchmck/vim-coffee-script'
 
 set rtp+=~/.powerline/powerline/bindings/vim
 
@@ -37,6 +38,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 
 " Make Vim more useful
 set nocompatible
