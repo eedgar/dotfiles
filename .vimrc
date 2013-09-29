@@ -45,7 +45,9 @@ autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 " Enhance command-line completion
 set wildmenu
 set wildmode=list:longest
@@ -239,4 +241,4 @@ let g:Powerline_theme='short'
 let g:Powerline_colorscheme='solarized256_dark'
 
 set rtp+=~/.powerline/powerline/bindings/vim
-let NERDTreeShowHidden=1
+"let NERDTreeShowHidden=1

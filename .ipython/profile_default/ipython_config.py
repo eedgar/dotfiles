@@ -106,7 +106,7 @@ c.TerminalIPythonApp.ignore_old_config = True
 # c.TerminalIPythonApp.ipython_dir = u'/Users/aaronmeurer/.ipython'
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
+c.TerminalIPythonApp.display_banner = False
 
 # Start IPython quickly by skipping the loading of config files.
 # c.TerminalIPythonApp.quick = False
@@ -177,13 +177,13 @@ c.TerminalInteractiveShell.autoedit_syntax = True
 # c.TerminalInteractiveShell.color_info = True
 
 #
-# c.TerminalInteractiveShell.history_length = 10000
+# c.TerminalInteractiveShell.history_length = 1000000000
 
 #
 # c.TerminalInteractiveShell.separate_in = '\n'
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-c.TerminalInteractiveShell.colors = 'LightBG'
+c.TerminalInteractiveShell.colors = 'Linux'
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
