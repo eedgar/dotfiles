@@ -42,8 +42,9 @@ set expandtab
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
-autocmd FileType go setlocal nolist textwidth=0 noexpandtab ts=8 sw=8
+autocmd FileType go setlocal nolist textwidth=0 noexpandtab ts=4 sw=4
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go set formatprg=gofmt
 
 " Make Vim more useful
 set nocompatible
