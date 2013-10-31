@@ -23,6 +23,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'honza/dockerfile.vim'
+
 
 set rtp+=~/.powerline/powerline/bindings/vim
 
