@@ -11,7 +11,7 @@ let g:NERDTreeShowBookmarks=1
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeIgnore=['\.pyc$', '\.swp$']
 
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 map <leader>nt :NERDTreeToggle<cr>
 
 Bundle 'benmills/vimux'
