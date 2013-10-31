@@ -22,6 +22,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'jnwhiteh/vim-golang'
 
 set rtp+=~/.powerline/powerline/bindings/vim
 
@@ -41,6 +42,9 @@ set expandtab
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType go setlocal nolist textwidth=0 noexpandtab ts=4 sw=4
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go set formatprg=gofmt
 
 " Make Vim more useful
 set nocompatible

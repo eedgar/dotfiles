@@ -19,3 +19,4 @@ unset doIt
 git submodule init
 git submodule update
 source ~/.bash_profile
+vim +BundleInstall +qall

@@ -53,3 +53,5 @@ if [ -n "$(which brew 2>/dev/null)" ]; then
         . $(brew --prefix)/etc/bash_completion
     fi
 fi
+
+export GOPATH=~/src/golang
